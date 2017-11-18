@@ -1,5 +1,7 @@
 package com.example.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,6 +21,11 @@ public class CourseServiceDatabase implements CourseService{
 	public CourseModel selectCourse(String idCourse) {
 		CourseModel courseModel = courseMapper.selectCourse(idCourse);
 		return courseModel;
+	}
+
+	@Override
+	public List<CourseModel> selectAllCourse() {
+		return courseMapper.selectAllCourse();
 	}
 
 }

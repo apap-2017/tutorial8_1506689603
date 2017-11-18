@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><title>View All Courses</title></head>
+<body>
+	
+	<h2 th:text=" 'Login as ' + ${#httpServletRequest.remoteUser}">Login
+		as</h2>
+
+	<form th:action="@{/logout}" method="post">
+		<input type="submit" value="Sign Out" />
+	</form>
+	
+	<h1>All Courses</h1>
+
+	<table id="courseTable" class="display">
+		<thead>
+			<tr>
+				<th>No</th>
+				<th>ID</th>
+				<th>Name</th>
+				<th>Credits</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="course,iterationStatus: ${courses}">
+				<td th:text="'No. ' + ${iterationStatus.count}"></td>
+				<td th:text="'ID = ' + ${course.idCourse}"></td>
+				<td th:text="'Name = ' + ${course.name}"></td>
+				<td th:text="'Credits = ' + ${course.credits}"></td>
+			</tr>
+		</tbody>
+	</table>
+
+</body>
+</html>
